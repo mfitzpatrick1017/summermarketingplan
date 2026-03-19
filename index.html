@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)file:///Users/macyfitzpatrick/Downloads/beachsports_marketing_plan_FINAL.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BeachSports — Summer 2026 Marketing Plan</title>
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+/* ── RESET + TOKENS ── */
+:root {
+  --green:  #10b48a;
+  --orange: #f37730;
+  --gold:   #fbac2b;
+  --text:   #6e6060;
+  --dark:   #2a1e1e;
+  --off:    #f7f5f2;
+  --offb:   #ede9e4;
+  --white:  #ffffff;
+  --shadow: 0 8px 32px rgba(110,96,96,.1);
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; background: var(--off); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes pulse  { 0%,100%{opacity:1;} 50%{opacity:.35;} }
+
+/* ── LAYOUT ── */
+.app { display: flex; min-height: 100vh; }
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 248px; flex-shrink: 0;
+  background: var(--dark);
+  position: sticky; top: 0; height: 100vh;
+  overflow-y: auto; display: flex; flex-direction: column;
+  scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.08) transparent;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,.08); border-radius: 4px; }
+
+.sb-brand { padding: 28px 24px 20px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.sb-eyebrow { font-size: .52rem; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--green); margin-bottom: 7px; }
+.sb-title { font-size: 1.05rem; font-weight: 900; letter-spacing: -.5px; text-transform: uppercase; color: #fff; line-height: 1.1; }
+.sb-title em { font-style: italic; color: var(--green); }
+.sb-sub { font-size: .63rem; color: rgba(255,255,255,.3); font-weight: 300; margin-top: 4px; }
+
+.sb-section { padding: 18px 24px 4px; font-size: .46rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.22); }
+
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 16px 9px 24px; margin-right: 12px;
+  font-size: .75rem; font-weight: 600;
+  color: rgba(255,255,255,.45); cursor: pointer;
+  border-left: 3px solid transparent; border-radius: 0 6px 6px 0;
+  transition: all .2s; text-decoration: none;
+}
+.nav-item:hover { color: rgba(255,255,255,.8); background: rgba(255,255,255,.05); }
+.nav-item.active { color: #fff; background: rgba(16,180,138,.14); border-left-color: var(--green); }
+.nav-item.active .ni { color: var(--green); }
+.nav-item.p2.active { background: rgba(243,119,48,.12); border-left-color: var(--orange); color: #fff; }
+.nav-item.p2.active .ni { color: var(--orange); }
+.nav-item.p3.active { background: rgba(251,172,43,.1); border-left-color: var(--gold); color: #fff; }
+.nav-item.p3.active .ni { color: var(--gold); }
+.nav-item.p4.active { background: rgba(42,30,30,.4); border-left-color: rgba(255,255,255,.4); color: #fff; }
+.ni { font-size: .95rem; width: 18px; text-align: center; flex-shrink: 0; }
+
+.sb-footer { margin-top: auto; padding: 20px 24px; border-top: 1px solid rgba(255,255,255,.07); }
+.sb-status-label { font-size: .46rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.25); margin-bottom: 8px; }
+.sb-pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(16,180,138,.13); border: 1px solid rgba(16,180,138,.28); border-radius: 50px; padding: 5px 13px; font-size: .63rem; font-weight: 700; color: var(--green); }
+.sb-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+.sb-budget { margin-top: 10px; font-size: .65rem; color: rgba(255,255,255,.3); font-weight: 300; line-height: 1.6; }
+.sb-budget strong { color: var(--gold); font-weight: 700; }
+
+/* ── MAIN ── */
+.main { flex: 1; min-width: 0; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--dark); padding: 52px 56px 44px;
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--green) 0%, var(--gold) 50%, var(--orange) 100%);
+}
+.hero-tag { font-size: .52rem; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--green); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.hero-tag::before { content: ''; width: 24px; height: 2px; background: var(--green); }
+.hero h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; letter-spacing: -2.5px; line-height: .92; text-transform: uppercase; color: #fff; margin-bottom: 20px; }
+.hero h1 em { font-style: italic; color: var(--green); }
+.hero-pills { display: flex; flex-wrap: wrap; gap: 9px; }
+.hero-pill { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 50px; padding: 5px 15px; font-size: .63rem; font-weight: 700; color: rgba(255,255,255,.6); }
+.hero-pill strong { color: var(--gold); }
+
+/* ── SECTION PAGES ── */
+.page { display: none; padding: 48px 56px 80px; background: var(--white); animation: fadeUp .35s ease; }
+.page.active { display: block; }
+
+/* part header */
+.part-hd { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--offb); }
+.part-n { font-size: 3.8rem; font-weight: 900; letter-spacing: -3px; line-height: 1; flex-shrink: 0; color: var(--green); }
+.part-n.orange { color: var(--orange); }
+.part-n.gold   { color: var(--gold); }
+.part-n.dark   { color: var(--dark); }
+.part-ey { font-size: .5rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+.part-ey.orange { color: var(--orange); }
+.part-ey.gold   { color: var(--gold); }
+.part-ey.dark   { color: rgba(42,30,30,.55); }
+.part-ti { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 900; letter-spacing: -1.2px; text-transform: uppercase; color: var(--dark); line-height: .95; }
+.part-ti em        { font-style: italic; color: var(--green); }
+.part-ti em.orange { color: var(--orange); }
+.part-ti em.gold   { color: var(--gold); }
+.part-sb { font-size: .85rem; font-weight: 300; color: var(--text); line-height: 1.65; margin-top: 7px; max-width: 600px; }
+
+/* insight / alert boxes */
+.insight { border-radius: 12px; padding: 18px 20px; margin-bottom: 18px; border: 1px solid rgba(16,180,138,.2); background: linear-gradient(135deg, rgba(16,180,138,.07), rgba(16,180,138,.01)); }
+.insight.orange { border-color: rgba(243,119,48,.2); background: linear-gradient(135deg, rgba(243,119,48,.07), rgba(243,119,48,.01)); }
+.insight.gold   { border-color: rgba(251,172,43,.25); background: linear-gradient(135deg, rgba(251,172,43,.08), rgba(251,172,43,.01)); }
+.insight h4 { font-size: .75rem; font-weight: 900; text-transform: uppercase; letter-spacing: -.1px; color: var(--green); margin-bottom: 7px; }
+.insight.orange h4 { color: var(--orange); }
+.insight.gold   h4 { color: #8a6200; }
+.insight p { font-size: .83rem; line-height: 1.75; color: var(--text); font-weight: 300; }
+.insight p strong { font-weight: 700; color: var(--dark); }
+
+.alert { background: rgba(251,172,43,.1); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 14px 18px; margin-bottom: 22px; }
+.alert-ey { font-size: .48rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+.alert p { font-size: .83rem; line-height: 1.75; color: var(--text); font-weight: 300; }
+.alert p strong { font-weight: 700; color: var(--dark); }
+
+/* cards */
+.card { background: var(--off); border-radius: 14px; padding: 24px 26px; margin-bottom: 16px; border-left: 4px solid var(--green); transition: transform .25s, box-shadow .25s; }
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.card.orange { border-left-color: var(--orange); }
+.card.gold   { border-left-color: var(--gold); }
+.card.dark   { border-left-color: var(--dark); }
+
+.card-top { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 10px; }
+.card-n { font-size: 2rem; font-weight: 900; letter-spacing: -2px; color: var(--green); line-height: 1; flex-shrink: 0; margin-top: -2px; }
+.card.orange .card-n { color: var(--orange); }
+.card.gold   .card-n { color: var(--gold); }
+.card.dark   .card-n { color: var(--dark); }
+.card-ey { font-size: .48rem; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green); margin-bottom: 4px; }
+.card.orange .card-ey { color: var(--orange); }
+.card.gold   .card-ey { color: var(--gold); }
+.card.dark   .card-ey { color: var(--dark); }
+.card-ti { font-size: .95rem; font-weight: 900; text-transform: uppercase; letter-spacing: -.2px; color: var(--dark); }
+.card-body { font-size: .83rem; line-height: 1.8; color: var(--text); font-weight: 300; margin-bottom: 14px; }
+.card-body strong { font-weight: 700; color: var(--dark); }
+.card-body em { font-style: italic; color: var(--dark); }
+
+/* two-col why/how */
+.twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+@media(max-width:620px) { .twocol { grid-template-columns: 1fr; } }
+.wh { background: var(--white); border-radius: 9px; padding: 13px 15px; border-top: 2px solid var(--green); }
+.card.orange .wh { border-top-color: var(--orange); }
+.card.gold   .wh { border-top-color: var(--gold); }
+.card.dark   .wh { border-top-color: var(--dark); }
+.wh-l { font-size: .46rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 5px; }
+.card.orange .wh-l { color: var(--orange); }
+.card.gold   .wh-l { color: var(--gold); }
+.card.dark   .wh-l { color: var(--dark); }
+.wh-t { font-size: .79rem; line-height: 1.7; color: var(--text); font-weight: 300; }
+.wh-t strong { font-weight: 700; color: var(--dark); }
+
+/* badge row */
+.badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.badge { font-size: .48rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 9px; border-radius: 50px; }
+.badge.green  { background: rgba(16,180,138,.1);  color: var(--green);  border: 1px solid rgba(16,180,138,.25); }
+.badge.orange { background: rgba(243,119,48,.1);  color: var(--orange); border: 1px solid rgba(243,119,48,.25); }
+.badge.gold   { background: rgba(251,172,43,.12); color: #7a5500;       border: 1px solid rgba(251,172,43,.35); }
+.badge.dark   { background: rgba(42,30,30,.07);   color: var(--dark);   border: 1px solid rgba(42,30,30,.15); }
+
+/* email preview */
+.email-prev { background: var(--dark); border-radius: 9px; padding: 12px 16px; margin-top: 12px; }
+.ep-l  { font-size: .46rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 5px; }
+.ep-s  { font-size: .84rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.ep-p  { font-size: .73rem; color: rgba(255,255,255,.38); font-weight: 300; }
+
+/* school pills */
+.school-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+.school-pill { font-size: .5rem; font-weight: 700; padding: 2px 9px; border-radius: 50px; background: var(--white); border: 1px solid var(--offb); color: var(--text); }
+
+/* requirements grid */
+.req-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0; }
+@media(max-width:540px) { .req-grid { grid-template-columns: 1fr 1fr; } }
+.req { background: var(--white); border-radius: 10px; padding: 14px 12px; text-align: center; }
+.req-ico  { font-size: 1.4rem; margin-bottom: 6px; }
+.req-name { font-size: .72rem; font-weight: 800; text-transform: uppercase; color: var(--dark); margin-bottom: 3px; }
+.req-desc { font-size: .67rem; color: var(--text); font-weight: 300; line-height: 1.45; }
+
+/* ad cards */
+.ad-card { background: var(--off); border-radius: 14px; overflow: hidden; margin-bottom: 16px; }
+.ad-head { padding: 16px 22px; display: flex; align-items: center; gap: 14px; }
+.ad-head.green  { background: rgba(16,180,138,.1); }
+.ad-head.orange { background: rgba(243,119,48,.09); }
+.ad-head.gold   { background: rgba(251,172,43,.09); }
+.ad-ico  { font-size: 1.8rem; }
+.ad-name { font-size: .98rem; font-weight: 900; text-transform: uppercase; letter-spacing: -.2px; color: var(--dark); }
+.ad-sub  { font-size: .7rem; color: var(--text); font-weight: 300; margin-top: 2px; }
+.verdict { font-size: .48rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 4px 11px; border-radius: 50px; margin-left: auto; flex-shrink: 0; }
+.verdict.yes   { background: rgba(16,180,138,.15); color: var(--green);  border: 1px solid rgba(16,180,138,.3); }
+.verdict.skip  { background: rgba(243,119,48,.12); color: var(--orange); border: 1px solid rgba(243,119,48,.25); }
+.ad-body { padding: 18px 22px 20px; }
+
+/* spec chips */
+.specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0; }
+@media(max-width:500px) { .specs { grid-template-columns: 1fr 1fr; } }
+.spec { background: var(--white); border-radius: 8px; padding: 10px 12px; }
+.spec-l { font-size: .44rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--text); opacity: .5; margin-bottom: 3px; }
+.spec-v { font-size: .82rem; font-weight: 700; color: var(--dark); }
+
+/* kpi grid */
+.kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin-bottom: 24px; }
+@media(max-width:520px) { .kpi-grid { grid-template-columns: 1fr 1fr; } }
+.kpi { background: var(--off); border-radius: 12px; padding: 18px 14px; text-align: center; border-top: 3px solid var(--green); transition: transform .25s; }
+.kpi:hover { transform: translateY(-3px); }
+.kpi.orange { border-top-color: var(--orange); }
+.kpi.gold   { border-top-color: var(--gold); }
+.kpi-n { font-size: 1.9rem; font-weight: 900; letter-spacing: -1px; color: var(--green); line-height: 1; margin-bottom: 5px; }
+.kpi.orange .kpi-n { color: var(--orange); }
+.kpi.gold   .kpi-n { color: var(--gold); }
+.kpi-l { font-size: .7rem; color: var(--text); font-weight: 400; line-height: 1.4; }
+
+/* send calendar */
+.cal { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 20px; }
+@media(max-width:600px) { .cal { grid-template-columns: repeat(2, 1fr); } }
+.cal-mo { background: var(--white); border-radius: 10px; padding: 14px 12px; }
+.cal-mo-name { font-size: .55rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--dark); margin-bottom: 10px; }
+.cal-sends { display: flex; flex-direction: column; gap: 5px; }
+.cal-send { font-size: .65rem; font-weight: 600; padding: 4px 8px; border-radius: 5px; color: #fff; line-height: 1.3; }
+.cal-send.g { background: var(--green); }
+.cal-send.o { background: var(--orange); }
+.cal-send.au { background: #c88a00; }
+.cal-send.d { background: var(--dark); }
+.cal-ct { font-size: .58rem; font-weight: 800; color: var(--text); opacity: .45; margin-top: 6px; }
+
+.cal-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+.leg { display: flex; align-items: center; gap: 6px; font-size: .67rem; font-weight: 600; color: var(--text); }
+.leg-dot { width: 9px; height: 9px; border-radius: 50%; }
+.leg-dot.g  { background: var(--green); }
+.leg-dot.o  { background: var(--orange); }
+.leg-dot.au { background: #c88a00; }
+.leg-dot.d  { background: var(--dark); }
+
+/* summary bar */
+.sum-bar { background: var(--off); border-radius: 12px; padding: 18px 20px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 14px; }
+.sum-stat { text-align: center; }
+.sum-n { font-size: 1.7rem; font-weight: 900; letter-spacing: -1px; line-height: 1; }
+.sum-n.g { color: var(--green); }
+.sum-n.o { color: var(--orange); }
+.sum-n.au { color: #c88a00; }
+.sum-n.d { color: var(--dark); }
+.sum-l { font-size: .52rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text); opacity: .55; margin-top: 3px; }
+
+/* divider */
+.divider { border: none; border-top: 1px solid var(--offb); margin: 26px 0; }
+
+/* ── MOBILE ── */
+@media(max-width:860px) {
+  .sidebar { display: none; }
+  .hero, .page { padding-left: 24px; padding-right: 24px; }
+  .mobile-nav { display: flex; }
+}
+.mobile-nav { display: none; overflow-x: auto; background: var(--dark); border-bottom: 2px solid rgba(255,255,255,.08); scrollbar-width: none; }
+.mobile-nav::-webkit-scrollbar { display: none; }
+.mobile-nav a { flex-shrink: 0; padding: 13px 16px; font-family: 'Jost', sans-serif; font-size: .58rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.4); cursor: pointer; border-bottom: 3px solid transparent; transition: all .2s; }
+.mobile-nav a.active { color: var(--green); border-bottom-color: var(--green); }
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ════════════════════════ SIDEBAR ════════════════════════ -->
+<nav class="sidebar">
+  <div class="sb-brand">
+    <div class="sb-eyebrow">BeachSports</div>
+    <div class="sb-title">Summer <em>2026</em></div>
+    <div class="sb-sub">Marketing Plan · South Bay</div>
+  </div>
+
+  <div class="sb-section">The Plan</div>
+  <a class="nav-item active" onclick="nav(&#39;overview&#39;,  this, &#39;&#39;)"><span class="ni">🌊</span> Overview</a>
+  <a class="nav-item" onclick="nav(&#39;p1a&#39;,       this, &#39;&#39;)"><span class="ni">📧</span> Part 1 · Email Segments</a>
+  <a class="nav-item" onclick="nav(&#39;p1b&#39;,       this, &#39;&#39;)"><span class="ni">📅</span> Part 1 · Send Calendar</a>
+  <a class="nav-item p2" onclick="nav(&#39;p2&#39;,        this, &#39;p2&#39;)"><span class="ni">🏫</span> Part 2 · Schools</a>
+  <a class="nav-item p3" onclick="nav(&#39;p3&#39;,        this, &#39;p3&#39;)"><span class="ni">🏘️</span> Part 3 · Communities</a>
+  <a class="nav-item p4" onclick="nav(&#39;p4&#39;,        this, &#39;p4&#39;)"><span class="ni">🎯</span> Part 4 · Paid Ads</a>
+
+  <div class="sb-section">At a Glance</div>
+  <a class="nav-item" onclick="nav(&#39;kpis&#39;,      this, &#39;&#39;)"><span class="ni">📊</span> KPIs &amp; Metrics</a>
+
+  <div class="sb-footer">
+    <div class="sb-status-label">Live Status</div>
+    <div class="sb-pill"><span class="sb-dot"></span> Registration Open</div>
+    <div class="sb-budget">Peak budget: <strong>~$350–450/mo</strong><br>3 cities · 5 programs · 500–1,500 families</div>
+  </div>
+</nav>
+
+<!-- ════════════════════════ MAIN ════════════════════════ -->
+<main class="main">
+
+  <!-- hero -->
+  <div class="hero">
+    <div class="hero-tag">Summer 2026 · South Bay</div>
+    <h1>BeachSports<br><em>Marketing Plan</em></h1>
+    <div class="hero-pills">
+      <div class="hero-pill">Goal: <strong>Sell out every week</strong></div>
+      <div class="hero-pill">Registration: <strong>Open now</strong></div>
+      <div class="hero-pill">Budget: <strong>~$350–450/mo peak</strong></div>
+      <div class="hero-pill">3 cities · 5 programs</div>
+      <div class="hero-pill">4 parts · 11 email segments · 2 paid ads</div>
+    </div>
+  </div>
+
+  <!-- mobile nav -->
+  <div class="mobile-nav">
+    <a class="active" onclick="nav(&#39;overview&#39;,this,&#39;&#39;)">Overview</a>
+    <a onclick="nav(&#39;p1a&#39;,this,&#39;&#39;)">Email</a>
+    <a onclick="nav(&#39;p1b&#39;,this,&#39;&#39;)">Calendar</a>
+    <a onclick="nav(&#39;p2&#39;,this,&#39;p2&#39;)">Schools</a>
+    <a onclick="nav(&#39;p3&#39;,this,&#39;p3&#39;)">Communities</a>
+    <a onclick="nav(&#39;p4&#39;,this,&#39;p4&#39;)">Paid Ads</a>
+    <a onclick="nav(&#39;kpis&#39;,this,&#39;&#39;)">KPIs</a>
+  </div>
+
+  <!-- ════ OVERVIEW ════ -->
+  <section id="p-overview" class="page active">
+    <div class="part-hd">
+      <div class="part-n">🏄</div>
+      <div>
+        <div class="part-ey">The Big Picture</div>
+        <div class="part-ti">Summer 2026 <em>Game Plan</em></div>
+        <div class="part-sb">Registration is open. The job now is filling every spot, every week across Redondo, Hermosa, and Manhattan Beach. Four integrated parts — each one feeds the next.</div>
+      </div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-ey">Where We Are Right Now</div>
+      <p>Registration is live and the early-bird window has closed. The opportunity: convert warm leads who've been considering it, capture new South Bay families who don't know BeachSports yet, and make sure <strong>no open spot sits unfilled for more than 72 hours.</strong></p>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><div class="card-n">1</div><div><div class="card-ey">Part One · Highest ROI</div><div class="card-ti">Segmented Email — 11 Distinct Audiences</div></div></div>
+      <p class="card-body">Zero generic blasts. Every email is pulled from CampBrain data and sent to a specific audience with a specific reason. Age-based unlocks, lapsed families, post-week upsells, referral asks, and a weekly Spot Check all summer. <strong>This is the backbone of the entire plan.</strong></p>
+    </div>
+    <div class="card orange">
+      <div class="card-top"><div class="card-n">2</div><div><div class="card-ey">Part Two · Community Reach</div><div class="card-ti">Schools — Foundation Partners + Internal Network</div></div></div>
+      <p class="card-body">Staff members who are teachers, parents who are admins, and foundation donation relationships get BeachSports into <strong>15+ schools</strong> without a single cold call to a principal. Physical flyers, newsletter mentions, and digital lobby boards.</p>
+    </div>
+    <div class="card gold">
+      <div class="card-top"><div class="card-n">3</div><div><div class="card-ey">Part Three · Free Reach</div><div class="card-ti">NextDoor, Facebook Groups + Marketplace</div></div></div>
+      <p class="card-body">The channels where South Bay parents already talk to each other. NextDoor Business profile, community Facebook groups via staff advocates, and a free Facebook Marketplace Services listing. <strong>Combined potential reach: 15,000–30,000 local parents.</strong></p>
+    </div>
+    <div class="card dark">
+      <div class="card-top"><div class="card-n">4</div><div><div class="card-ey">Part Four · Brand Awareness</div><div class="card-ti">2 Paid Ads — Google Search + Instagram Feed</div></div></div>
+      <p class="card-body">Google Search captures parents already searching for camps. Instagram Feed reaches new South Bay families who don't follow BeachSports yet. <strong>$250–350/month total. Tight geo-targeting. Measurable from day one.</strong></p>
+    </div>
+
+    <div class="divider"></div>
+    <div class="insight">
+      <h4>The Three Strategic Pillars</h4>
+      <p><strong>Pillar 1:</strong> Convert the warm audience — email list and Instagram followers who already know BeachSports just need a nudge. <strong>Pillar 2:</strong> Own the South Bay community feed — NextDoor, schools, Facebook groups put BeachSports where parents already are. <strong>Pillar 3:</strong> Fill gaps in real time — a standing 72-hour gap-fill playbook so no spot sits empty.</p>
+    </div>
+  </section>
+
+  <!-- ════ PART 1A — EMAIL SEGMENTS ════ -->
+  <section id="p-p1a" class="page">
+    <div class="part-hd">
+      <div class="part-n">01</div>
+      <div>
+        <div class="part-ey">Part One</div>
+        <div class="part-ti">Segmented <em>Email</em></div>
+        <div class="part-sb">11 distinct segments from CampBrain. Every email has a specific audience, a specific reason, and a specific CTA. Zero generic blasts. Every send should feel like it was written personally for that family — because it was.</div>
+      </div>
+    </div>
+
+    <div class="insight">
+      <h4>The Core Philosophy</h4>
+      <p>The difference between a good email program and a great one is <strong>relevance.</strong> CampBrain holds DOB, program history, location history, and attendance years. We use every field. A parent whose kid just turned 7 doesn't need the same email as a cold lead who's never registered. Pull the right list, write the right email, send at the right moment.</p>
+    </div>
+
+    <!-- SEGMENT A -->
+    <div class="card">
+      <div class="card-top"><div class="card-n">A</div><div><div class="card-ey">Lifecycle · Age Unlock · Highest Priority</div><div class="card-ti">Beach → Full Programs (Child Turns 7)</div></div></div>
+      <div class="badge-row"><span class="badge green">Lifecycle Trigger</span><span class="badge dark">CampBrain: DOB + Program History</span><span class="badge green">Send: Now</span></div>
+      <p class="card-body">Pull every family whose child's DOB puts them at age 7 in 2026 AND who only has Beach program registrations in their history. These parents already love BeachSports — they just don't realize <strong>Surf, Ocean, Volleyball, and Skate are now on the table.</strong> This email doesn't sell, it informs and excites. Link directly to each newly eligible program.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">Why it converts (25–40%)</div><div class="wh-t">Zero trust barrier. You're not convincing them of anything — you're delivering news they want to hear. <strong>Their kid just graduated to the next level.</strong> That's exciting, not salesy.</div></div>
+        <div class="wh"><div class="wh-l">How to pull in CampBrain</div><div class="wh-t">Filter: DOB Jan 1–Dec 31, 2019 + program history = Beach only. Export. Done. Est. <strong>50–150 families.</strong></div></div>
+      </div>
+      <div class="email-prev">
+        <div class="ep-l">Subject Line</div>
+        <div class="ep-s">"[Name] just unlocked something big 🏄"</div>
+        <div class="ep-p">Hey [Parent] — great news. Now that [Child] is 7, they're eligible for Surf, Ocean, Volleyball and Skate this summer...</div>
+      </div>
+    </div>
+
+    <!-- SEGMENT B -->
+    <div class="card gold">
+      <div class="card-top"><div class="card-n">B</div><div><div class="card-ey">Lifecycle · Age Unlock</div><div class="card-ti">Skate Unlock (Child Turns 5)</div></div></div>
+      <div class="badge-row"><span class="badge gold">Lifecycle Trigger</span><span class="badge dark">CampBrain: DOB</span><span class="badge gold">Send: April</span></div>
+      <p class="card-body">Parents of newly-5-year-olds who've done Beach may not realize Skate is now available. Frame as a <strong>milestone moment</strong> — "your kid is officially old enough to learn to skate." Skate has no direct local structured competitor. Timing the email to the age unlock makes it feel made for them — because it is.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">Why it converts</div><div class="wh-t">Parents who want their kid to learn skating have very few structured local options. <strong>BeachSports Skate at Hermosa is the answer</strong> — they just need to know it exists.</div></div>
+        <div class="wh"><div class="wh-l">CampBrain filter</div><div class="wh-t">DOB Jan 1–Dec 31, 2021. Est. <strong>30–80 families.</strong> Send April, before summer planning peaks.</div></div>
+      </div>
+      <div class="email-prev">
+        <div class="ep-l">Subject Line</div>
+        <div class="ep-s">"[Name] is officially old enough to shred 🛹"</div>
+        <div class="ep-p">Big milestone — now that [Child] has turned 5, they're old enough to join our Skate program at Hermosa Beach skate park this summer...</div>
+      </div>
+    </div>
+
+    <!-- SEGMENT C -->
+    <div class="card">
+      <div class="card-top"><div class="card-n">C</div><div><div class="card-ey">Lifecycle · Program Graduation</div><div class="card-ti">CIT Pipeline (Child Turns 14)</div></div></div>
+      <div class="badge-row"><span class="badge green">Lifecycle Trigger</span><span class="badge dark">CampBrain: DOB + Attendance Years</span><span class="badge green">Send: March–April</span></div>
+      <p class="card-body">Long-time campers aging out of being a participant. The CIT program keeps them in the BeachSports family instead of losing them entirely. Send to <strong>parents AND the teenager if possible.</strong> Lead with identity: "you've grown up at BeachSports — now it's your turn to lead." A teenager who becomes a CIT becomes a coach at 16, a director at 18.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">Why this matters strategically</div><div class="wh-t">Retaining aging-out families is one of the most missed opportunities in camp marketing. This email <strong>protects long-term revenue AND deepens community.</strong></div></div>
+        <div class="wh"><div class="wh-l">CampBrain filter</div><div class="wh-t">DOB Jan 1–Dec 31, 2012 + 3+ years attendance history. Est. <strong>20–50 families.</strong></div></div>
+      </div>
+      <div class="email-prev">
+        <div class="ep-l">Subject Line</div>
+        <div class="ep-s">"Is [Name] ready to go from camper to coach?"</div>
+        <div class="ep-p">After years at BeachSports, [Name] has officially aged into our Coach-in-Training program — and we'd love to have them on the team...</div>
+      </div>
+    </div>
+
+    <!-- SEGMENT D -->
+    <div class="card gold">
+      <div class="card-top"><div class="card-n">D</div><div><div class="card-ey">Behavioral · Re-engagement · Send This Week</div><div class="card-ti">Lapsed 2024 Families — Not Yet Registered</div></div></div>
+      <div class="badge-row"><span class="badge gold">Re-engagement</span><span class="badge dark">Attended 2024, no 2026 registration yet</span><span class="badge gold">Highest Priority Send</span></div>
+      <p class="card-body">Your <strong>single biggest segment and most important send right now.</strong> These families are warm, proven customers — they didn't leave angry, life just got busy. Don't reference the gap. Act like you're picking up where you left off. First name, reference their specific program from last year if CampBrain allows it. Personal, not corporate.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">Why it converts (20–35%)</div><div class="wh-t">Returning families convert at 3–5x the rate of cold leads. Most haven't registered simply because <strong>no one reminded them at the right moment.</strong> This email is that moment.</div></div>
+        <div class="wh"><div class="wh-l">CampBrain filter</div><div class="wh-t">Last registration year = 2024, no 2026 registration. Est. <strong>200–400 families.</strong> Highest ROI send in the entire plan.</div></div>
+      </div>
+      <div class="email-prev">
+        <div class="ep-l">Subject Line</div>
+        <div class="ep-s">"We saved a spot for [Name] 🌊"</div>
+        <div class="ep-p">Hey [Parent] — summer 2026 is filling up fast and we wanted to make sure [Name] gets their spot before it's gone. Registration is open now...</div>
+      </div>
+    </div>
+
+    <!-- SEGMENT E -->
+    <div class="card dark">
+      <div class="card-top"><div class="card-n">E</div><div><div class="card-ey">Behavioral · Multi-Child · Upsell</div><div class="card-ti">Multi-Child Families — Simplify the Logistics</div></div></div>
+      <div class="badge-row"><span class="badge dark">Behavioral</span><span class="badge dark">2+ children in CampBrain</span><span class="badge dark">Send: April</span></div>
+      <p class="card-body">Families with multiple kids are your highest-revenue customers — but many only register one child assuming logistics are complicated. Show them that multiple kids can attend <strong>simultaneously at the same location in different programs,</strong> same drop-off time. Remove the friction and the booking happens. Est. 100–200 families.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">The revenue math</div><div class="wh-t">One family going from 1 child to 2 registered <strong>doubles revenue per family with zero acquisition cost.</strong> This segment alone could generate $10K+ in additional bookings.</div></div>
+        <div class="wh"><div class="wh-l">The email angle</div><div class="wh-t">"Your 7-year-old in Surf + your 5-year-old in Beach at Manhattan Beach — <strong>same drop-off, same pickup, different adventures."</strong> Make it feel easy.</div></div>
+      </div>
+      <div class="email-prev">
+        <div class="ep-l">Subject Line</div>
+        <div class="ep-s">"Your crew can all go at the same time — here's how"</div>
+        <div class="ep-p">Good news for families with multiple kids — your children can attend different BeachSports programs simultaneously at the same location, same drop-off...</div>
+      </div>
+    </div>
+
+    <!-- SEGMENT F -->
+    <div class="card orange">
+      <div class="card-top"><div class="card-n">F</div><div><div class="card-ey">Summer Engine · Every Monday · Non-Negotiable</div><div class="card-ti">The Weekly Spot Check Email</div></div></div>
+      <div class="badge-row"><span class="badge orange">Urgency</span><span class="badge dark">Every Monday 8am</span><span class="badge orange">Jun – Aug</span></div>
+      <p class="card-body">Every Monday morning during summer. Short, plain-text, casual. <strong>Not designed.</strong> One photo from last week. What programs have spots. One link. Reads like a text from a friend. Any program under 80% capacity gets called out by name: <em>"Redondo Surf: 3 spots left this week."</em> This is the backbone. Never skip it.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">Why plain text outperforms</div><div class="wh-t">Plain-text emails from a known sender <strong>beat designed newsletters by 20–30% in open rates.</strong> Parents on the fence register after seeing specific scarcity. Urgency in the inbox drives same-day action.</div></div>
+        <div class="wh"><div class="wh-l">Time investment</div><div class="wh-t">Macy drafts Friday, sends Monday 8am. <strong>20 minutes per send.</strong> Exclude families already registered that week — keep it relevant.</div></div>
+      </div>
+      <div class="email-prev">
+        <div class="ep-l">Subject Line</div>
+        <div class="ep-s">"This week at BeachSports 🤙 [June 9–13]"</div>
+        <div class="ep-p">Quick update — Redondo Surf has 3 spots left, Hermosa Beach is sold out, Manhattan Ocean has 5 open. Here's what's happening this week...</div>
+      </div>
+    </div>
+
+    <!-- SEGMENT G -->
+    <div class="card">
+      <div class="card-top"><div class="card-n">G</div><div><div class="card-ey">Urgency · Gap Fill · Tactical</div><div class="card-ti">Program-Specific Urgency Blast</div></div></div>
+      <div class="badge-row"><span class="badge green">Urgency</span><span class="badge dark">Trigger: Program under 70%, 1 week out</span><span class="badge green">Wed or Thu send</span></div>
+      <p class="card-body">When a specific program at a specific location is lagging, send a targeted blast to the most relevant sub-segment — past attendees of that program + location. <strong>Don't blast the whole list.</strong> The specificity makes it feel personal, not desperate. Wednesday or Thursday sends perform best for weekend decision-making.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">Why targeted beats broadcast</div><div class="wh-t">The same message sent to 80 families who attended Redondo Surf last year <strong>feels like it was written for them.</strong> Open rates on highly targeted sends are 2–3x higher than general blasts.</div></div>
+        <div class="wh"><div class="wh-l">How to execute</div><div class="wh-t">CampBrain filter: attended [Program] at [Location] in prior year. Export. Write one hyper-specific email. <strong>15 minutes, no design needed.</strong></div></div>
+      </div>
+      <div class="email-prev">
+        <div class="ep-l">Subject Line</div>
+        <div class="ep-s">"[Name] did this last year — a few spots just opened up"</div>
+        <div class="ep-p">Since [Name] did Redondo Surf last summer, we wanted to give you first look — 4 spots open for the week of June 16 and they're going fast...</div>
+      </div>
+    </div>
+
+    <!-- SEGMENT H -->
+    <div class="card orange">
+      <div class="card-top"><div class="card-n">H</div><div><div class="card-ey">Referral · Mid-Summer · Gap Fill</div><div class="card-ti">Bring a Friend Week</div></div></div>
+      <div class="badge-row"><span class="badge orange">Referral</span><span class="badge dark">To: Currently registered families only</span><span class="badge orange">July</span></div>
+      <p class="card-body">Sent exclusively to families already registered. Identify the slowest week in July (check by July 1). Ask them to refer one friend family. Incentivize with a BeachSports tee at pickup. Make the referral mechanic dead simple — a unique link or "referred by" field at checkout. <strong>Your happiest customers become your sales team.</strong></p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">The referral math</div><div class="wh-t">200 registered families × 10% referral rate = 20 new registrations × $350 avg = <strong>$7,000 revenue from one email</strong> and a box of $15 tees.</div></div>
+        <div class="wh"><div class="wh-l">Why referred leads convert higher</div><div class="wh-t">They come pre-sold by someone they trust. No trust barrier to overcome. <strong>Referred leads convert at 3–4x the rate of cold outreach.</strong></div></div>
+      </div>
+      <div class="email-prev">
+        <div class="ep-l">Subject Line</div>
+        <div class="ep-s">"Know a kid who'd love this? Bring them 🤙"</div>
+        <div class="ep-p">We have a few spots open the week of July 14 and wanted to give our BeachSports families first dibs. Refer a friend — we'll have a tee waiting at pickup...</div>
+      </div>
+    </div>
+
+    <!-- SEGMENT I -->
+    <div class="card dark">
+      <div class="card-top"><div class="card-n">I</div><div><div class="card-ey">Behavioral · Post-Experience · Upsell</div><div class="card-ti">Post-Week Upsell (Book a Second Week)</div></div></div>
+      <div class="badge-row"><span class="badge dark">Upsell</span><span class="badge dark">Send: Monday after their week ends</span><span class="badge dark">All summer</span></div>
+      <p class="card-body">Send the Monday after a family's camp week ends while the experience is still fresh and the kid is still talking about it at dinner. Acknowledge the week, lead with a soft insight — <em>"most families who do a second week say that's when the real breakthrough happens"</em> — then link to open weeks.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">Why timing is everything</div><div class="wh-t">Post-experience is the highest-intent upsell moment. Striking within 48 hours of pickup is <strong>3–4x more effective than a cold "book again" email</strong> sent weeks later.</div></div>
+        <div class="wh"><div class="wh-l">How to automate</div><div class="wh-t">Set up an automated trigger in your email platform: if registration end date = last Monday, send this email. <strong>Zero manual effort once set up.</strong></div></div>
+      </div>
+      <div class="email-prev">
+        <div class="ep-l">Subject Line</div>
+        <div class="ep-s">"How was [Name]'s week? (One more might change everything)"</div>
+        <div class="ep-p">Hope [Name] had an incredible week — we sure loved having them. A lot of families come back for a second week and say that's when it all clicks...</div>
+      </div>
+    </div>
+
+    <!-- SEGMENT J -->
+    <div class="card gold">
+      <div class="card-top"><div class="card-n">J</div><div><div class="card-ey">Re-engagement · Cold Leads</div><div class="card-ti">Never Registered — Social Proof First</div></div></div>
+      <div class="badge-row"><span class="badge gold">Cold Lead</span><span class="badge dark">On list, never purchased</span><span class="badge gold">Send: May</span></div>
+      <p class="card-body">People who signed up for the list, inquired, or were referred but never registered. <strong>Different message entirely — lead with social proof and parent testimonials, not scarcity.</strong> Build trust before asking for the sale. Use your best 5-star testimonials and a great photo. Registration link is secondary.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">What works with cold leads</div><div class="wh-t">They need to see that <strong>real South Bay families trust BeachSports.</strong> Pull 2–3 of your best testimonials that mention safety, confidence, and their kid asking to come back. That's the sell.</div></div>
+        <div class="wh"><div class="wh-l">What doesn't work</div><div class="wh-t">Scarcity and urgency. They haven't committed emotionally yet — pushing urgency on a cold lead feels aggressive. <strong>Earn the trust first.</strong></div></div>
+      </div>
+      <div class="email-prev">
+        <div class="ep-l">Subject Line</div>
+        <div class="ep-s">"What South Bay parents are saying about this summer 🌟"</div>
+        <div class="ep-p">Every summer, South Bay families trust BeachSports with their most precious people. Here's what they said about last summer...</div>
+      </div>
+    </div>
+
+    <!-- SEGMENT K -->
+    <div class="card">
+      <div class="card-top"><div class="card-n">K</div><div><div class="card-ey">Nurture · August · Lock in 2027</div><div class="card-ti">End-of-Summer — Save Your Spot for 2027</div></div></div>
+      <div class="badge-row"><span class="badge green">Retention</span><span class="badge dark">To: Everyone who attended summer 2026</span><span class="badge green">Send: Last week of August</span></div>
+      <p class="card-body">The final email of the season. Thank the families, celebrate the summer, and immediately ask them to save their spot for 2027 via a waitlist or early registration link. <strong>Families who commit in August re-register at a dramatically higher rate than those who don't.</strong> Also ask for a Google review — happy families will leave one if asked directly.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">Why August is the best time to sell 2027</div><div class="wh-t">Families are at peak satisfaction. The summer just ended, the kid is still buzzing. <strong>Strike now — not in January when they've forgotten.</strong></div></div>
+        <div class="wh"><div class="wh-l">The ask</div><div class="wh-t">Two asks only: <strong>(1)</strong> Waitlist / early register for 2027. <strong>(2)</strong> Leave a Google review. Keep it warm and grateful, not salesy.</div></div>
+      </div>
+      <div class="email-prev">
+        <div class="ep-l">Subject Line</div>
+        <div class="ep-s">"What a summer. See you in 2027? 🌊"</div>
+        <div class="ep-p">We are so grateful for an incredible summer. If you want to lock in your spot for next year — we're already taking names. And if you have 60 seconds, a Google review means the world...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ PART 1B — SEND CALENDAR ════ -->
+  <section id="p-p1b" class="page">
+    <div class="part-hd">
+      <div class="part-n">01</div>
+      <div>
+        <div class="part-ey">Part One · Send Schedule</div>
+        <div class="part-ti">Email <em>Calendar</em></div>
+        <div class="part-sb">28–32 total sends across the season. Every single one is targeted to a specific audience. Zero generic blasts.</div>
+      </div>
+    </div>
+
+    <div class="cal-legend">
+      <div class="leg"><div class="leg-dot g"></div> Lifecycle / Age Triggers</div>
+      <div class="leg"><div class="leg-dot o"></div> Urgency / Gap Fill</div>
+      <div class="leg"><div class="leg-dot au"></div> Behavioral / Re-engagement</div>
+      <div class="leg"><div class="leg-dot d"></div> Nurture / Upsell</div>
+    </div>
+    <div class="cal">
+      <div class="cal-mo">
+        <div class="cal-mo-name">April</div>
+        <div class="cal-sends">
+          <div class="cal-send g">Beach → Full Programs</div>
+          <div class="cal-send g">Skate Age Unlock</div>
+          <div class="cal-send au">Multi-Child Families</div>
+          <div class="cal-send g">CIT Pipeline (Age 14)</div>
+        </div>
+        <div class="cal-ct">4 sends</div>
+      </div>
+      <div class="cal-mo">
+        <div class="cal-mo-name">May</div>
+        <div class="cal-sends">
+          <div class="cal-send au">Lapsed 2024 Families</div>
+          <div class="cal-send au">Never Registered Leads</div>
+          <div class="cal-send g">Multi-Program Eligible</div>
+          <div class="cal-send d">Single-Location Loyal</div>
+        </div>
+        <div class="cal-ct">4 sends</div>
+      </div>
+      <div class="cal-mo">
+        <div class="cal-mo-name">June</div>
+        <div class="cal-sends">
+          <div class="cal-send o">Spot Check × 4 Mon</div>
+          <div class="cal-send d">Post-Week Upsells</div>
+          <div class="cal-send o">Program Urgency Blasts</div>
+        </div>
+        <div class="cal-ct">6–8 sends</div>
+      </div>
+      <div class="cal-mo">
+        <div class="cal-mo-name">July</div>
+        <div class="cal-sends">
+          <div class="cal-send o">Spot Check × 4 Mon</div>
+          <div class="cal-send g">Bring a Friend Week</div>
+          <div class="cal-send d">Post-Week Upsells</div>
+          <div class="cal-send o">Program Urgency Blasts</div>
+        </div>
+        <div class="cal-ct">7–10 sends</div>
+      </div>
+      <div class="cal-mo">
+        <div class="cal-mo-name">August</div>
+        <div class="cal-sends">
+          <div class="cal-send o">Spot Check × 3 Mon</div>
+          <div class="cal-send au">Thank You + 2027</div>
+          <div class="cal-send d">Google Review Ask</div>
+        </div>
+        <div class="cal-ct">5–6 sends</div>
+      </div>
+    </div>
+    <div class="sum-bar">
+      <div class="sum-stat"><div class="sum-n g">11</div><div class="sum-l">Unique Segments</div></div>
+      <div class="sum-stat"><div class="sum-n o">28–32</div><div class="sum-l">Total Sends</div></div>
+      <div class="sum-stat"><div class="sum-n au">0</div><div class="sum-l">Generic Blasts</div></div>
+      <div class="sum-stat"><div class="sum-n d">100%</div><div class="sum-l">Targeted Sends</div></div>
+    </div>
+  </section>
+
+  <!-- ════ PART 2 — SCHOOLS ════ -->
+  <section id="p-p2" class="page">
+    <div class="part-hd">
+      <div class="part-n orange">02</div>
+      <div>
+        <div class="part-ey orange">Part Two</div>
+        <div class="part-ti">Getting Into <em class="orange">Schools</em></div>
+        <div class="part-sb">Staff members who are teachers, parents who are school admins, and existing foundation relationships get BeachSports into 15+ schools without a single cold call to a principal.</div>
+      </div>
+    </div>
+
+    <div class="insight orange">
+      <h4>The Strategic Reality</h4>
+      <p>Schools are gatekept — principals and office managers are bombarded with flyer requests. <strong>The businesses that get in are the ones with a warm connection, a community angle, and zero friction for the school.</strong> BeachSports has all three. Foundation donations = credibility. Staff/parent relationships = the door. The flyer just needs to make it easy to say yes.</p>
+    </div>
+
+    <div class="card orange">
+      <div class="card-top"><div class="card-n">1</div><div><div class="card-ey">Tier 1 · Easiest · Do First</div><div class="card-ti">Activate the Internal Network</div></div></div>
+      <p class="card-body">BeachSports has staff members who are teachers and parents who are school admins. These people have direct access to school communication channels — weekly newsletters, parent email blasts, hallway bulletin boards, and bag stuffing. <strong>This is the fastest path into schools and requires zero cold outreach.</strong></p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">The ask (make it a 30-second favor)</div><div class="wh-t">Give each connection a <strong>ready-to-send email template</strong> they can forward to their principal or office manager. You do the work — they just hit send. Pre-write the email for them.</div></div>
+        <div class="wh"><div class="wh-l">What to give them</div><div class="wh-t">A pre-written email. A digital flyer (PDF). A stack of physical flyers. One talking point: <strong>"BeachSports donates to our school foundation every year — they just want families to know about summer programs."</strong></div></div>
+      </div>
+    </div>
+
+    <div class="card orange">
+      <div class="card-top"><div class="card-n">2</div><div><div class="card-ey">Tier 2 · Foundation Leverage · May</div><div class="card-ti">Formal Ask Through Foundation Partners</div></div></div>
+      <p class="card-body">BeachSports already donates to MBEF, RBEF, HBEF, Peninsula Ed Foundation, ES Ed Foundation, Hermosa Beach Ed Foundation, and American Martyrs School Foundation. <strong>Each foundation has direct communication channels to every parent at every school they serve.</strong> One ask per foundation = 10–15 schools covered.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">The exact ask</div><div class="wh-t">Email the Executive Director of each foundation. Reference the donation relationship. Ask for one of: <strong>bag stuffing in May, inclusion in parent newsletter, or a mention in end-of-year email blast.</strong> They will say yes — you're a donor asking a small favor.</div></div>
+        <div class="wh"><div class="wh-l">Schools this unlocks</div><div class="wh-t">MBEF → all MB elementaries + Mira Costa. RBEF → Redondo elementaries. HBEF → Hermosa Valley + View. <strong>Three emails to three foundation directors = 12+ schools.</strong></div></div>
+      </div>
+      <div class="school-pills">
+        <span class="school-pill">Grand View ES</span><span class="school-pill">Robinson ES</span><span class="school-pill">Pennekamp ES</span><span class="school-pill">Pacific ES</span><span class="school-pill">Mira Costa HS</span><span class="school-pill">Hermosa Valley ES</span><span class="school-pill">View ES</span><span class="school-pill">APES</span><span class="school-pill">Jefferson ES</span><span class="school-pill">Adams MS</span><span class="school-pill">Beryl Heights ES</span><span class="school-pill">Parras MS</span><span class="school-pill">American Martyrs</span><span class="school-pill">Peninsula HS</span><span class="school-pill">ES Ed Foundation schools</span>
+      </div>
+    </div>
+
+    <div class="card orange">
+      <div class="card-top"><div class="card-n">3</div><div><div class="card-ey">Tier 3 · Direct Outreach · April–May</div><div class="card-ti">Office Manager Outreach (Not the Principal)</div></div></div>
+      <p class="card-body">For schools not covered by foundations or internal connections, go direct — but to the <strong>right person: the office manager, not the principal.</strong> They control bulletin boards, bag stuffing, and parent newsletters. A brief, friendly email with a community angle and donation mention works far better than a generic cold flyer drop.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">The email script</div><div class="wh-t"><em>"Hi [Name], BeachSports is a family-owned South Bay camp — we support [School] Foundation every year. We'd love to include a flyer in May bags. Happy to drop them off pre-sorted by classroom."</em> <strong>Pre-sorting removes all effort from them.</strong></div></div>
+        <div class="wh"><div class="wh-l">Physical delivery strategy</div><div class="wh-t">Don't mail — <strong>deliver in person.</strong> Show up with a sorted stack and a BeachSports tee as a thank-you for the office. Schools that meet you in person distribute 3x more reliably than those who just receive a mailed package.</div></div>
+      </div>
+    </div>
+
+    <div class="card orange">
+      <div class="card-top"><div class="card-n">4</div><div><div class="card-ey">Tier 4 · Digital · Long Game</div><div class="card-ti">School Newsletters + Digital Lobby Boards</div></div></div>
+      <p class="card-body">Many South Bay schools send weekly parent email newsletters and have digital display boards in their lobbies. <strong>A single paragraph in a school newsletter reaches 400–800 families at once, for free.</strong> A 10-second branded slide on a lobby display board runs on loop in front of every parent at drop-off and pickup.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">How to get in the newsletter</div><div class="wh-t">Ask foundation contacts to connect you to the school newsletter editor. Frame as a community resource announcement: <strong>"BeachSports, a South Bay-founded camp and foundation supporter, has spots available for summer..."</strong></div></div>
+        <div class="wh"><div class="wh-l">Digital lobby boards</div><div class="wh-t">Ask if community businesses can submit a slide (many schools allow this). A branded 10-second slide with a photo of kids surfing + QR code runs on loop. <strong>Free billboard at every South Bay school that allows it.</strong></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ PART 3 — COMMUNITIES ════ -->
+  <section id="p-p3" class="page">
+    <div class="part-hd">
+      <div class="part-n gold">03</div>
+      <div>
+        <div class="part-ey gold">Part Three</div>
+        <div class="part-ti">NextDoor, Facebook <em class="gold">Communities</em></div>
+        <div class="part-sb">The channels where South Bay parents already talk to each other. Getting here isn't about ads — it's about showing up like a neighbor, not a brand. Combined potential reach: 15,000–30,000 local parents.</div>
+      </div>
+    </div>
+
+    <div class="insight gold">
+      <h4>The Mindset Shift</h4>
+      <p>NextDoor and Facebook community groups are <strong>trust-based environments.</strong> People are there for neighbor-to-neighbor conversation — they instantly distrust anything that feels like advertising. The businesses that win here are the ones that show up as a <strong>community member first, business second.</strong> BeachSports is perfectly positioned to do this authentically.</p>
+    </div>
+
+    <div class="card gold">
+      <div class="card-top"><div class="card-n">1</div><div><div class="card-ey">NextDoor · Free Business Profile</div><div class="card-ti">NextDoor for Business — Setup + Strategy</div></div></div>
+      <p class="card-body">NextDoor has a free Business profile that lets local businesses post to specific neighborhoods. BeachSports' El Segundo address qualifies. Set up one profile, target posts to Redondo Beach, Hermosa Beach, Manhattan Beach, and El Segundo neighborhoods. <strong>Requirements are minimal — 15 minutes to set up, free forever.</strong></p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">Exact setup steps</div><div class="wh-t">Go to nextdoor.com/business → Business name (BeachSports) → Address (112 Arena St, El Segundo) → Phone → Category: Recreation / Summer Camps → Verify via postcard or phone call. <strong>Done. Free.</strong></div></div>
+        <div class="wh"><div class="wh-l">What to post (and what not to)</div><div class="wh-t"><strong>Post like a neighbor, not a brand.</strong> "Spots open at Hermosa Surf this week if anyone's looking 🤙" works. "REGISTER NOW — LIMITED SPOTS!!" gets flagged as spam. Authentic + local always wins.</div></div>
+      </div>
+      <div class="twocol" style="margin-top:11px;">
+        <div class="wh"><div class="wh-l">Posting frequency</div><div class="wh-t">1–2x per week during summer. More feels spammy. <strong>One real photo of a local kid outperforms five generic posts.</strong></div></div>
+        <div class="wh"><div class="wh-l">The secret weapon</div><div class="wh-t">Encourage happy parents to post their own NextDoor recommendations. A neighbor recommending BeachSports <strong>reaches 500+ households and NextDoor won't flag it as advertising.</strong> Worth asking for directly.</div></div>
+      </div>
+    </div>
+
+    <div class="card gold">
+      <div class="card-top"><div class="card-n">2</div><div><div class="card-ey">Facebook Groups · Free · High Reach</div><div class="card-ti">Community Groups — The Right Strategy</div></div></div>
+      <p class="card-body">South Bay has several high-membership parent Facebook groups with <strong>combined reach of 15,000–30,000 local parents.</strong> Most groups ban direct business advertising — but allow community members to share resources and recommendations. The strategy is staff and parent advocates posting organically, not BeachSports posting as a brand.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">Key groups to target</div><div class="wh-t">South Bay Moms · Manhattan Beach Parents · Redondo Beach Families · Hermosa Beach Community · South Bay Kids Activities · El Segundo Parents. Have <strong>Macy and coaches join personally</strong> and post authentically.</div></div>
+        <div class="wh"><div class="wh-l">What works in groups</div><div class="wh-t">"My daughter just finished her first week of BeachSports surf camp — she's obsessed" posted by a real parent is not an ad, it's a recommendation. <strong>Answer every "summer camp recommendations?" thread immediately.</strong> They appear constantly in May/June.</div></div>
+      </div>
+    </div>
+
+    <div class="card gold">
+      <div class="card-top"><div class="card-n">3</div><div><div class="card-ey">Facebook Marketplace · Free Services Listing</div><div class="card-ti">Marketplace — Requirements + Setup</div></div></div>
+      <p class="card-body">Facebook Marketplace Services listings are <strong>completely free</strong> and appear in search results when parents look for local activities. Almost no camps are using this. It's a 10-minute setup that puts BeachSports in front of parents actively searching for summer activities.</p>
+      <div class="req-grid">
+        <div class="req"><div class="req-ico">👤</div><div class="req-name">FB Account</div><div class="req-desc">Post from BeachSports FB page or a personal profile linked to it</div></div>
+        <div class="req"><div class="req-ico">📍</div><div class="req-name">Location</div><div class="req-desc">Set to South Bay / Redondo Beach — shows to nearby searchers automatically</div></div>
+        <div class="req"><div class="req-ico">🖼️</div><div class="req-name">3–5 Photos</div><div class="req-desc">Real camp photos — happy kids on the beach. This is what stops the scroll.</div></div>
+        <div class="req"><div class="req-ico">💲</div><div class="req-name">Price</div><div class="req-desc">Enter weekly price or "Message for pricing" — don't leave it blank</div></div>
+        <div class="req"><div class="req-ico">📝</div><div class="req-name">Description</div><div class="req-desc">3–4 sentences. Programs, ages, all 3 locations, registration link. Simple.</div></div>
+        <div class="req"><div class="req-ico">🔄</div><div class="req-name">Relist Weekly</div><div class="req-desc">Re-post every 7–10 days to stay at the top of search. Takes 30 seconds.</div></div>
+      </div>
+    </div>
+
+    <div class="card gold">
+      <div class="card-top"><div class="card-n">4</div><div><div class="card-ey">The Golden Rule · All Community Channels</div><div class="card-ti">Give Before You Ask</div></div></div>
+      <p class="card-body">The brands that win on community platforms <strong>give value before they ask for anything.</strong> BeachSports already does this — you donate to foundations, you employ local kids, you're woven into the South Bay community fabric. Lean into that identity in every post. Be useful and local first. The registration link comes second.</p>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">Content that earns trust</div><div class="wh-t">Ocean safety tips. Shoutouts to local lifeguards. Staff highlights. Kid of the Week. <strong>"Proud of our coaches this summer."</strong> Community-first content builds the credibility that turns a scroll into a registration.</div></div>
+        <div class="wh"><div class="wh-l">Content that gets removed</div><div class="wh-t">"Sign up now! Limited spots!" posted directly in groups gets flagged as spam. <strong>Never lead with a sales message in community spaces.</strong> Lead with the story, end with the link — always.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ PART 4 — PAID ADS ════ -->
+  <section id="p-p4" class="page">
+    <div class="part-hd">
+      <div class="part-n dark">04</div>
+      <div>
+        <div class="part-ey dark">Part Four</div>
+        <div class="part-ti">Paid Ads — <em>2 Max</em></div>
+        <div class="part-sb">Goal: brand awareness — getting BeachSports in front of South Bay families who don't know you yet. Two ads, done well, beat five ads done poorly. Google Search + Instagram Feed.</div>
+      </div>
+    </div>
+
+    <div class="insight">
+      <h4>The Paid Ads Philosophy</h4>
+      <p>With a modest budget and a brand awareness goal, <strong>every dollar needs to reach a new local family</strong> — not retarget people who already know BeachSports. That means tight geographic targeting, strong creative, and platforms where South Bay parents actually spend time. Two ads max — <strong>Google Search for intent capture, Instagram Feed for awareness.</strong> Do both well rather than spreading thin.</p>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-head green">
+        <div class="ad-ico">🔍</div>
+        <div style="flex:1">
+          <div class="ad-name">Ad #1 — Google Search</div>
+          <div class="ad-sub">Capture parents actively searching for summer camps right now</div>
+        </div>
+        <div class="verdict yes">Do This First</div>
+      </div>
+      <div class="ad-body">
+        <p class="card-body">A parent searching <em>"surf camp Manhattan Beach"</em> is <strong>the highest-intent lead that exists.</strong> They've already decided they want camp — they just haven't found BeachSports yet. Since Google Ads was tried briefly before, the key difference this time is: exact match keywords, program-specific landing pages (not homepage), and conversion tracking on from day one so you can see what's actually driving registrations.</p>
+        <div class="specs">
+          <div class="spec"><div class="spec-l">Monthly Budget</div><div class="spec-v">$150–200</div></div>
+          <div class="spec"><div class="spec-l">Est. Clicks/mo</div><div class="spec-v">25–40</div></div>
+          <div class="spec"><div class="spec-l">Cost Per Click</div><div class="spec-v">$4–8</div></div>
+          <div class="spec"><div class="spec-l">Run Dates</div><div class="spec-v">Apr – Jul</div></div>
+          <div class="spec"><div class="spec-l">Landing Page</div><div class="spec-v">Program-specific</div></div>
+          <div class="spec"><div class="spec-l">Track From</div><div class="spec-v">Day 1</div></div>
+        </div>
+        <div class="twocol">
+          <div class="wh" style="border-top:2px solid var(--green)"><div class="wh-l" style="color:var(--green)">Best Keywords to Target</div><div class="wh-t">"surf camp [city]" · "kids summer camp South Bay" · "beach volleyball camp kids" · "junior lifeguard camp" · "skate camp kids Hermosa" · "beach camp [age] year old" · "[city] summer camp 2026"</div></div>
+          <div class="wh" style="border-top:2px solid var(--green)"><div class="wh-l" style="color:var(--green)">Why It Failed Before + The Fix</div><div class="wh-t">Most first Google Ads attempts fail from <strong>broad keyword matching + sending to homepage.</strong> Fix: use exact match keywords, send every ad to the matching program page, install a Google conversion tag (free, 30 min setup) to track actual registrations — not just clicks.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-head orange">
+        <div class="ad-ico">📱</div>
+        <div style="flex:1">
+          <div class="ad-name">Ad #2 — Instagram + Facebook Feed</div>
+          <div class="ad-sub">Brand awareness among South Bay parents who haven't discovered BeachSports yet</div>
+        </div>
+        <div class="verdict yes">Brand Awareness</div>
+      </div>
+      <div class="ad-body">
+        <p class="card-body">Since the goal is awareness — reaching new local families who've never heard of BeachSports — Instagram/Facebook Feed ads are the right tool. <strong>Not Stories, not Reels, not a boosted post.</strong> A single beautiful photo ad of a kid catching a wave, targeted to parents ages 28–45 within 10 miles of Manhattan Beach. Simple, visual, local. The creative does the work.</p>
+        <div class="specs">
+          <div class="spec"><div class="spec-l">Monthly Budget</div><div class="spec-v">$100–150</div></div>
+          <div class="spec"><div class="spec-l">Daily Spend</div><div class="spec-v">$3–5/day</div></div>
+          <div class="spec"><div class="spec-l">Est. Monthly Reach</div><div class="spec-v">3,000–6,000</div></div>
+          <div class="spec"><div class="spec-l">Target Age</div><div class="spec-v">28–45 Parents</div></div>
+          <div class="spec"><div class="spec-l">Geo Radius</div><div class="spec-v">10mi from MB</div></div>
+          <div class="spec"><div class="spec-l">Format</div><div class="spec-v">Single image</div></div>
+        </div>
+        <div class="twocol">
+          <div class="wh" style="border-top:2px solid var(--orange)"><div class="wh-l" style="color:var(--orange)">Creative That Stops the Scroll</div><div class="wh-t"><strong>Real photo, no text overlay.</strong> A kid mid-air on a wave. A group of laughing kids at golden hour. Authentic beats polished every time on Instagram. Use the best Kid of the Week content. The caption sells — the photo stops the scroll.</div></div>
+          <div class="wh" style="border-top:2px solid var(--orange)"><div class="wh-l" style="color:var(--orange)">Targeting Setup in Meta Ads Manager</div><div class="wh-t">Awareness campaign → Age 28–45 → 10mi radius from Manhattan Beach → Interests: parenting, beach, surfing, kids activities. <strong>Exclude current BeachSports followers</strong> — this budget is for new eyes only, not preaching to the converted.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-head gold">
+        <div class="ad-ico">🚫</div>
+        <div style="flex:1">
+          <div class="ad-name">Everything Else — Skip This Year</div>
+          <div class="ad-sub">TikTok, YouTube Pre-Roll, Google Display, Facebook Cold Audiences</div>
+        </div>
+        <div class="verdict skip">Not Yet</div>
+      </div>
+      <div class="ad-body">
+        <p class="card-body">Display ads, YouTube pre-roll, and TikTok require either stronger creative assets, larger budgets, or audiences that don't match where South Bay parents make summer decisions. <strong>Two strong channels beat five weak ones every time.</strong> If Google Search + Instagram prove out strong ROI by July, scale those budgets in 2027 before adding new channels.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="insight">
+      <h4>Total Paid Ad Budget — The 2-Ad Stack</h4>
+      <p>Google Search ($150–200) + Instagram Feed ($100–150) = <strong>$250–350/month on paid ads.</strong> Run April through July, pause in August. After 4 weeks, check: which ad drove more registrations? Double down on the winner. If Google Search delivers one additional registration per week ($350+), <strong>it pays for itself entirely.</strong></p>
+    </div>
+  </section>
+
+  <!-- ════ KPIs ════ -->
+  <section id="p-kpis" class="page">
+    <div class="part-hd">
+      <div class="part-n">📊</div>
+      <div>
+        <div class="part-ey">At a Glance</div>
+        <div class="part-ti">KPIs + <em>Success Metrics</em></div>
+        <div class="part-sb">How we know it's working — and when to pivot. Review every Monday before sending the Spot Check email.</div>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-n">100%</div><div class="kpi-l">Sell-out target — every program, every week</div></div>
+      <div class="kpi orange"><div class="kpi-n">80%</div><div class="kpi-l">Minimum fill rate 2 weeks before camp starts</div></div>
+      <div class="kpi gold"><div class="kpi-n">40%+</div><div class="kpi-l">Email open rate (industry avg: 22%)</div></div>
+      <div class="kpi"><div class="kpi-n">&lt;72h</div><div class="kpi-l">Max time an open spot goes without a push</div></div>
+      <div class="kpi orange"><div class="kpi-n">10+</div><div class="kpi-l">New Google reviews by end of August</div></div>
+      <div class="kpi gold"><div class="kpi-n">$8</div><div class="kpi-l">Max cost-per-click on Google Ads</div></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="card">
+      <div class="card-top"><div class="card-n" style="font-size:1.4rem">📋</div><div><div class="card-ey">Every Monday — Before the Spot Check Email</div><div class="card-ti">Weekly Check-In — 4 Questions</div></div></div>
+      <div class="twocol">
+        <div class="wh"><div class="wh-l">Enrollment</div><div class="wh-t">Which programs/locations are under 80% this week? Which are sold out? This determines urgency language in the Spot Check email and Stories for that week.</div></div>
+        <div class="wh"><div class="wh-l">Content</div><div class="wh-t">Which Instagram post got the most saves/shares this week? What content is resonating? <strong>Double down on that format.</strong> Don't keep posting what isn't getting engagement.</div></div>
+        <div class="wh" style="margin-top:11px;"><div class="wh-l">Paid Ads</div><div class="wh-t">What did Google Ads spend? How many clicks? Any attributed registrations? Is cost-per-click under $8? If not — tighten the keyword targeting or pause and adjust.</div></div>
+        <div class="wh" style="margin-top:11px;"><div class="wh-l">Pipeline</div><div class="wh-t">Families who inquired but haven't registered? A direct personal email from Lisa or Macy converts better than any campaign. <strong>Follow up within 48 hours of inquiry.</strong></div></div>
+      </div>
+    </div>
+
+    <div class="insight">
+      <h4>The One Number That Matters Most</h4>
+      <p>Every metric above serves one goal: <strong>100% fill rate for every program, every week, across all three locations.</strong> When that number is green, the plan is working. When it's not, the gap-fill playbook activates — 72 hours maximum from "this week has open spots" to a targeted email, Story, and NextDoor post hitting the right audience.</p>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<script>
+function nav(id, el, cls) {
+  // hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // deactivate all nav items
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.mobile-nav a').forEach(n => n.classList.remove('active'));
+  // show target
+  document.getElementById('p-' + id).classList.add('active');
+  // activate clicked nav item
+  el.classList.add('active');
+  // scroll main to top
+  document.querySelector('.main').scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+
+</body></html>
